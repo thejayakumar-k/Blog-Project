@@ -27,7 +27,7 @@ const unsubscribe = onAuthStateChanged(auth, (user) => {
           }
         }
         else{
-          console.log("User Logged Out")
+          navigate("/login")
         }
       })
 
