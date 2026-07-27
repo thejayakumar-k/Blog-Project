@@ -25,18 +25,17 @@ const unsubscribe = onAuthStateChanged(auth, (user) => {
           else{
             setAdmin(false)
           }
+          axios.get(`${API_URL}/api/blogs`).then((res) => {
+              console.log(res.data)
+              setBlogs(res.data)
+          }).catch(() => {
+              console.log("Error fetching data")
+          })
         }
         else{
           navigate("/login")
         }
       })
-
-        axios.get(`${API_URL}/api/blogs`).then((res) => {
-            console.log(res.data)
-            setBlogs(res.data)
-        }).catch(() => {
-            console.log("Error fetching data")
-        })
 
 
     }, [])
