@@ -34,7 +34,8 @@ const app = express();
 app.use(cors({
   origin: [
     "https://blog-project-191p.vercel.app",
-    "https://blog-project-kgv67y3z1-jayakumar-ks-projects.vercel.app",
+    "https://blog-project-iyth.vercel.app",
+    "https://blog-project-sand-omega.vercel.app",
     "http://localhost:5173",
   ],
   credentials: true,
