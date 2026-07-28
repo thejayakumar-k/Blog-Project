@@ -21,5 +21,10 @@
     "firebase-admin": "^13.1.0",
     "mongodb": "^7.5.0",
     "mongoose": "^8.2.2"
+  },
+  "overrides": {
+    "jwks-rsa": {
+      "jose": "4.15.9"
+    }
   }
 }
