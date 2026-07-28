@@ -42,7 +42,9 @@ app.use(cors({
 }));
 app.use(express.json());
 
-const CASHFREE_BASE_URL = process.env.CASHFREE_BASE_URL || "https://sandbox.cashfree.com/pg";
+const CASHFREE_BASE_URL = (process.env.CASHFREE_APP_ID && process.env.CASHFREE_APP_ID.startsWith("TEST"))
+  ? "https://sandbox.cashfree.com/pg"
+  : (process.env.CASHFREE_BASE_URL || "https://sandbox.cashfree.com/pg");
 
 function getCashfreeHeaders() {
   return {
