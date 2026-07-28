@@ -12,18 +12,22 @@ const admin = require("firebase-admin");
 const { getAuth } = require("firebase-admin/auth");
 require("dotenv").config();
 
-if (!admin.apps.length) {
-  if (process.env.FIREBASE_SERVICE_ACCOUNT) {
-    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-    admin.initializeApp({
-      credential: admin.cert(serviceAccount),
-    });
-  } else {
-    const serviceAccount = require("./serviceAccountKey.json");
-    admin.initializeApp({
-      credential: admin.cert(serviceAccount),
-    });
+try {
+  if (!admin.apps.length) {
+    if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+      const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+      admin.initializeApp({
+        credential: admin.cert(serviceAccount),
+      });
+    } else {
+      const serviceAccount = require("./serviceAccountKey.json");
+      admin.initializeApp({
+        credential: admin.cert(serviceAccount),
+      });
+    }
   }
+} catch (e) {
+  console.error("Firebase Admin init error:", e.message);
 }
 const app = express();
 

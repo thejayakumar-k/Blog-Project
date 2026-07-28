@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "dev": "node index.js",
     "start": "node index.js",
@@ -15,7 +18,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.4.2",
     "express": "^4.19.1",
-    "firebase-admin": "^14.2.0",
+    "firebase-admin": "^13.1.0",
     "mongodb": "^7.5.0",
     "mongoose": "^8.2.2"
   }
